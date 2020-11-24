@@ -1,0 +1,32 @@
+# The complete script/file
+import logging
+import logging.handlers as r
+from datetime import datetime
+import pyodbc
+import sys
+
+# Function that parse/save log error to multiple 50MB files
+# This function keeps 20 files of 50 each. Recycling when necessary
+
+
+def log_tofile(ex, path):
+
+    logging.basicConfig(
+        handlers=[r.RotatingFileHandler(
+            path, maxBytes=500000, backupCount=20)],
+        level=logging.DEBUG,
+        format="[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s",
+        datefmt='%Y-%m-%dT%H:%M:%S')
+
+    logging.debug(ex)
+
+
+conn_str = 'CONN_STR'
+path = 'LOG_FILE_PATH'
+
+# Using this method you can see all logs.
+try:
+    conn = pyodbc.connect(conn_str)
+except:
+    #  sys.exit('ERROR: Could not connect to the database')  Pls don't do this. This exception doesn't generate usefull log.
+    log_tofile(sys.exc_info(), path)
