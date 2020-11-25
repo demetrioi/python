@@ -1,0 +1,55 @@
+{
+    "values": [
+        {
+            "id": 1,
+            "name": "Toyota",
+            "details": {
+                "name": "Corolla",
+                "horsepower": "140",
+                "availablecolors": [
+                    {
+                        "name": "white"
+                    },
+                    {
+                        "name": "black"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "name": "Toyota",
+            "details": {
+                "name": "Camry",
+                "horsepower": "170",
+                "availablecolors": [
+                    {
+                        "name": "blue"
+                    },
+                    {
+                        "name": "green"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "name": "Volvo",
+            "details": {
+                "name": "V60",
+                "horsepower": "200",
+                "availablecolors": [
+                    {
+                        "name": "silver"
+                    },
+                    {
+                        "name": "black/red"
+                    },
+                    {
+                        "name": "black"
+                    }
+                ]
+            }
+        }
+    ]
+}
