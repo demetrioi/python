@@ -24,7 +24,7 @@ source ~/.bashrc
 # Check the new path added
 vim ~/.bashrc
 
-# Init the DB - You must be on cd / Users/demetrioi/apacheair
+# Init the DB - You must be on cd /Users/demetrioi/apacheair
 # In this case using the default SQL Lite
 airflow initdb
 
