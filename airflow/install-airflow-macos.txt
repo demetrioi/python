@@ -1,0 +1,42 @@
+# Steps to install configure Apache Airflow on Macos
+# Ariflow Doc: https://airflow.apache.org/docs/stable/
+
+cd ~
+
+mkdir apacheair
+
+cd / Users/demetrioi/apacheair
+
+# You can use PyEnv to run airflow in a specific Python Version.
+# I'm using Python 3.8.6
+# I'm using this specific Airflow version to avoid errors: https://github.com/apache/airflow/issues/11965
+
+# Install Airflow
+pip install apache-airflow == 1.10.12 - -constraint "https://raw.githubusercontent.com/apache/airflow/constraints-1.10.12/constraints-3.7.txt"
+
+# Add Airflow to Path
+
+echo 'export AIRFLOW_HOME=/Users/demetrioi/apacheair' >> ~/.bashrc
+
+# Refresh the Env Variables
+source ~/.bashrc
+
+# Check the new path added
+vim ~/.bashrc
+
+# Init the DB - You must be on cd / Users/demetrioi/apacheair
+# In this case using the default SQL Lite
+airflow initdb
+
+# Close and open the Shell or Open a new Tab
+
+# Execute the following command to start the webserver
+airflow webserver
+
+# Open a new Tab and execute this command to start the scheduler
+airflow scheduler
+
+#Open the Airflow GUI using any brownser
+http://localhost:8080/admin/
+
+# Enter Ctrl + C to close both Tabs (airflow webserver and airflow scheduler)
